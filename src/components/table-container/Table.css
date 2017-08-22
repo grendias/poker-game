@@ -1,0 +1,28 @@
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+.table_player {
+    margin: auto;
+    display: flex;
+}
+
+.table_player .card-holder {
+    width: 13em;
+    margin-left: 1em;
+}
+
+.table_top {
+    margin-top: 2em;
+}
+
+.table_middle .player-cards-container {
+    margin: auto;
+}
+
+.table_top,
+.table_middle,
+.table_bottom {
+    display: flex;
+}

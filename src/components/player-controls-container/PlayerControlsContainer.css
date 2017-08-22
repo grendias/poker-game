@@ -1,0 +1,7 @@
+.player-controls-container {
+    display: flex;
+    flex-direction: column;
+    width: 18.5em;
+    height: 6.5em;
+    border: solid 1px;
+}

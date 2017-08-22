@@ -1,0 +1,45 @@
+.primary-player-controls {
+    display: flex;
+    flex-direction: row;
+    height: 3em;
+    margin: auto;
+}
+
+.primary-player-controls button {
+    border: none;
+    border-radius: 0.25em;
+}
+
+.primary-player-controls  .control-button.fold button,
+.primary-player-controls  .control-button.check button,
+.primary-player-controls  .control-button.call button,
+.primary-player-controls  .control-button.raise button {
+    font-weight: bold;
+    color: #fff;
+}
+
+.primary-player-controls  .control-button.fold button:hover,
+.primary-player-controls  .control-button.check button:hover,
+.primary-player-controls  .control-button.call button:hover,
+.primary-player-controls  .control-button.raise button:hover {
+    background-color: #fff;
+    color: #000000;
+    border: solid 1px;
+    border-radius: 0.25em;
+}
+
+.primary-player-controls  .control-button.fold button {
+    background-color: #920f0f;
+}
+
+.primary-player-controls  .control-button.check button {
+    background-color: #a5a506;
+}
+
+.primary-player-controls  .control-button.call button {
+    background-color: #028602;
+}
+
+.primary-player-controls  .control-button.raise button {
+    background-color: #0000ff;
+}

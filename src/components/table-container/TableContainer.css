@@ -1,0 +1,8 @@
+.table-container {
+    width: 68em;
+    border: solid;
+    background-color: #3a9b3a;
+    position: absolute;
+    left: 1em;
+    border-radius: 10em;
+}

@@ -1,0 +1,35 @@
+.betting-controls  {
+    display: flex;
+    flex-direction: row;
+    height: 3em;
+    width: 21em;
+    margin: auto;
+}
+
+.betting-controls  button {
+    border: none;
+    border-radius: 0.25em;
+}
+
+.betting-controls .control-button button {
+    background-color: #222;
+    font-weight: bold;
+    color: #fff;
+}
+
+.betting-controls .control-button button:hover {
+    background-color: #fff;
+    color: #000000;
+    border: solid 1px;
+    border-radius: 0.25em;
+}
+
+.betting-controls .step-input {
+    width: 9em;
+}
+
+.betting-controls .step-input input {
+    width: 8em;
+    margin-top: 1em;
+}
+

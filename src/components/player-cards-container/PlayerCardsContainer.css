@@ -1,0 +1,13 @@
+.player-cards-container {
+    border: solid 1px;
+    margin: auto;
+    border-radius: 4em;
+    background: #016901;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+
+.player-cards-container .card-holder {
+    width: 13em;
+}

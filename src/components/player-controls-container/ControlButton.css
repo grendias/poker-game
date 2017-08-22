@@ -1,0 +1,12 @@
+.control-button {
+    width: 4.5em;
+    margin-right: 0.1em;
+}
+
+.control-button button {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+

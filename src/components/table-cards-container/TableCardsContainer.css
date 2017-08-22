@@ -1,0 +1,13 @@
+.table-cards-container {
+    margin: 0.75em;
+    border: solid 1px;
+}
+
+.table-cards-container .card-holder {
+    width: 35em;
+    background-color: #184d18;
+}
+
+.table-cards-container .card-holder_list {
+    background-color: #184d18;
+}
