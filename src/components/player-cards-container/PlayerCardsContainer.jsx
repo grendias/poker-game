@@ -2,6 +2,13 @@ import React, { Component }  from 'react';
 import './PlayerCardsContainer.css';
 import CardHolder from '../card-holder/CardHolder';
 import PlayerInfo from './PlayerInfo';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+    return {
+
+    }
+};
 
 const cards = [
     {
@@ -16,11 +23,12 @@ class PlayerCardsContainer extends Component {
 
     render() {
         return <div className="player-cards-container">
-            <div>Username</div>
+            <div className="player-cards-container_username">Username</div>
+            <div className="player-cards-container_amount">£1000</div>
             <CardHolder cards={ cards } />
             <PlayerInfo />
         </div>
     }
 };
 
-export default PlayerCardsContainer;
+export default connect(mapStateToProps)(PlayerCardsContainer);
