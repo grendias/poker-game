@@ -6,7 +6,20 @@ const REQUEST_OPTIONS_GET =  {
     mode: 'cors',
 };
 
-const makeRequest = (requestOptions) => (url) => {
+const REQUEST_OPTIONS_POST =  {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    mode: 'cors',
+};
+
+
+const makeRequest = (requestOptions) => (url, body) => {
+    if (body) {
+        requestOptions = Object.assign({}, requestOptions, { body: JSON.stringify(body) });
+    }
+
     return fetch(url, requestOptions)
         .then((response) => {
                 if (response.status !== 200) {
@@ -14,7 +27,7 @@ const makeRequest = (requestOptions) => (url) => {
                     return;
                 }
 
-               return response;
+                return response;
             }
         )
         .catch((err) => {
@@ -24,4 +37,6 @@ const makeRequest = (requestOptions) => (url) => {
 
 const get = makeRequest(REQUEST_OPTIONS_GET);
 
-export { get };
+const post = makeRequest(REQUEST_OPTIONS_POST);
+
+export {get, post};

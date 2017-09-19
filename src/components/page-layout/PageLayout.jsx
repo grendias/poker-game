@@ -1,18 +1,37 @@
 import React, { Component } from 'react';
 import TableContainer from '../table-container/TableContainer';
 import './PageLayout.css';
-import WebSocket from '../../client/websocket';
+import { post } from '../../client/rest';
+import { connectToWebsocket, subscribeToDestination } from '../../redux/actions/WebSocketAction';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+    return {
+
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        connectToWebsocket: () => {
+            dispatch(connectToWebsocket('http://127.0.0.1:8080/texas-holdem-mw/texas-holdem-mw/texasholdem'));
+        },
+        subscribeToRoom: (destination) => {
+            dispatch(subscribeToDestination(destination));
+        }
+    }
+};
+
 
 class PageLayout extends Component {
 
     constructor() {
         super();
-        this.webSocket = new WebSocket('http://127.0.0.1:8080/texas-holdem-mw/texas-holdem-mw/texasholdem');
+
     }
 
     componentDidMount() {
-        this.webSocket.connect()
-            .then(() =>  this.webSocket.subscribe('/topic/table1'));
+        this.props.connectToWebsocket();
     }
 
     render() {
@@ -20,10 +39,16 @@ class PageLayout extends Component {
             <div className="page-layout">
 
                 <TableContainer/>
-                <button onClick={ ()  =>  this.webSocket.sendMessage('/app/topic/table1', { payload: 'HELLLLOOO!!!'}) }>Click me</button>
+                <button onClick={()  => {
+                    this.props.subscribeToRoom('/topic/ROOM_1');
+                    post('http://127.0.0.1:8080/texas-holdem-mw/texas-holdem-mw/game', {
+                        username: 'blah',
+                        tableId: 'ROOM_1',
+                    });
+                }}> Add to Room </button>
             </div>
         );
     }
 }
 
-export default PageLayout;
+export default connect(mapStateToProps, mapDispatchToProps)(PageLayout);

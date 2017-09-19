@@ -32,9 +32,9 @@ class WebSocket {
 
     }
 
-    subscribe(subscriptionAdd) {
+    subscribe(subscriptionAdd, callback) {
         this.stompClient.subscribe(subscriptionAdd,(messageOutput) => {
-            this.showMessageOutput(JSON.parse(messageOutput.body));
+            callback(JSON.parse(messageOutput.body));
         });
     }
 

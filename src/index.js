@@ -7,6 +7,7 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import websocketMiddleware from './redux/middleware/Websocket';
 
 const reducer = combineReducers({
 });
@@ -18,6 +19,7 @@ const store = createStore(
     applyMiddleware(
         thunkMiddleware,
         loggerMiddleware,
+        websocketMiddleware,
     )
 );
 
