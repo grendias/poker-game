@@ -15,6 +15,15 @@ const REQUEST_OPTIONS_POST =  {
 };
 
 
+const REQUEST_OPTIONS_DELETE =  {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    method: 'DELETE',
+    mode: 'cors',
+};
+
+
 const makeRequest = (requestOptions) => (url, body) => {
     if (body) {
         requestOptions = Object.assign({}, requestOptions, { body: JSON.stringify(body) });
@@ -35,8 +44,10 @@ const makeRequest = (requestOptions) => (url, body) => {
         });
 };
 
+const del = makeRequest(REQUEST_OPTIONS_DELETE);
+
 const get = makeRequest(REQUEST_OPTIONS_GET);
 
 const post = makeRequest(REQUEST_OPTIONS_POST);
 
-export {get, post};
+export { get, post, del };

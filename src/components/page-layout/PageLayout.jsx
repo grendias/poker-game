@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TableContainer from '../table-container/TableContainer';
 import './PageLayout.css';
 import { post } from '../../client/rest';
-import { connectToWebsocket, subscribeToDestination } from '../../redux/actions/WebSocketAction';
+import { connectToWebsocket, subscribeToDestination } from '../../redux/actions/PokerWebsocketAction';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -14,11 +14,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         connectToWebsocket: () => {
-            dispatch(connectToWebsocket('http://127.0.0.1:8080/texas-holdem-mw/texas-holdem-mw/texasholdem'));
+            dispatch(connectToWebsocket('http://localhost:8080/texas-holdem/texas-holdem-mw/texasholdem'));
+        },
+        addToRoom: (roomId) => {
+
         },
         subscribeToRoom: (destination) => {
             dispatch(subscribeToDestination(destination));
-        }
+        },
     }
 };
 
@@ -27,7 +30,6 @@ class PageLayout extends Component {
 
     constructor() {
         super();
-
     }
 
     componentDidMount() {
@@ -41,7 +43,7 @@ class PageLayout extends Component {
                 <TableContainer/>
                 <button onClick={()  => {
                     this.props.subscribeToRoom('/topic/ROOM_1');
-                    post('http://127.0.0.1:8080/texas-holdem-mw/texas-holdem-mw/game', {
+                    post('http://localhost:8080/texas-holdem/texas-holdem-mw/game', {
                         username: 'blah',
                         tableId: 'ROOM_1',
                     });

@@ -1,0 +1,21 @@
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    width: 18em;
+    margin: 6em auto auto auto;
+}
+
+.signup-form_section {
+    margin-top: 1em;
+}
+
+.signup-form button {
+    width: 8em;
+    margin: 1em auto auto auto;
+}
+
+.signup-form label {
+    display: inline-block;
+    margin-right: 0.5em;
+    width: 6em;
+}

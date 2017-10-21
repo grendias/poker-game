@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PageLayout from './components/page-layout/PageLayout';
-import registerServiceWorker from './registerServiceWorker';
+import App from './components/app/App';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import websocketMiddleware from './redux/middleware/Websocket';
+import otherPlayersReducer from './redux/reducers/OtherPlayersReducer';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const reducer = combineReducers({
-});
+        otherPlayers: otherPlayersReducer,
+    }
+);
 
 const loggerMiddleware = createLogger();
 
@@ -19,13 +21,13 @@ const store = createStore(
     applyMiddleware(
         thunkMiddleware,
         loggerMiddleware,
-        websocketMiddleware,
     )
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <PageLayout/>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root'));
-registerServiceWorker();
